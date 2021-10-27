@@ -1,0 +1,12 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    container_name: simulacaoBancaria
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=simulacaoBancaria
+      - POSTGRES_USER=kaio
+      - POSTGRES_PASSWORD=89tb^yw64*rt
+      - MAX_CONNECTIONS=300
