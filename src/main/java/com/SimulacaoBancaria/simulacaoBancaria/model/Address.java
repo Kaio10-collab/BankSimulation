@@ -1,13 +1,14 @@
 package com.SimulacaoBancaria.simulacaoBancaria.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "address")
 public class Address {
 
     @Id
-    @Column(name = "postalCode", nullable = false)
+    @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
     @Column(name = "street", nullable = false)
@@ -22,15 +23,19 @@ public class Address {
     @Column(name = "country", nullable = false)
     private String country;
 
+    @Column(name = "created_at", nullable = false)
+    private LocalDate createdAt;
+
     public Address() {
     }
 
-    public Address(String postalCode, String street, String state, String city, String country) {
+    public Address(String postalCode, String street, String state, String city, String country, LocalDate createdAt) {
         this.postalCode = postalCode;
         this.street = street;
         this.state = state;
         this.city = city;
         this.country = country;
+        this.createdAt = createdAt;
     }
 
     public String getStreet() {
@@ -71,5 +76,13 @@ public class Address {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 }

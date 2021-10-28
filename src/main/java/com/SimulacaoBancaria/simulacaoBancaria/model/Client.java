@@ -1,6 +1,7 @@
 package com.SimulacaoBancaria.simulacaoBancaria.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "client")
@@ -16,7 +17,7 @@ public class Client {
     @Column(name = "cpf", nullable = false)
     private String cpf;
 
-    @Column(name = "phoneNumber", nullable = false)
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
     @Column(name = "address", nullable = false)
@@ -25,16 +26,20 @@ public class Client {
     @Column(name = "account", nullable = false)
     private Account account;
 
+    @Column(name = "created_at", nullable = false)
+    private LocalDate createdAt;
+
     public Client() {
     }
 
-    public Client(Long id, String name, String cpf, String phoneNumber, Address address, Account account) {
+    public Client(Long id, String name, String cpf, String phoneNumber, Address address, Account account, LocalDate createdAt) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.account = account;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -83,5 +88,13 @@ public class Client {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 }
