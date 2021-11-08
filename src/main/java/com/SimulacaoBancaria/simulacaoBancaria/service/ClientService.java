@@ -16,9 +16,9 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public Client registerClient (ClientRequest clientRequest) {
+    public Client registerClient(ClientRequest clientRequest){
 
-        Client client = clientRequest.requestObject();
+        Client client = clientRequest.requestObjectClient();
 
         if (clientRepository.existsByCpf(clientRequest.getCpf())){
             throw new RuntimeException("Client already registred");
@@ -27,7 +27,7 @@ public class ClientService {
     }
 
     public Client registrationChange (ClientRequest clientRequest) {
-        if(clientRepository.existsById(clientRequest.requestObject().getId())){
+        if(clientRepository.existsById(clientRequest.requestObjectClient().getId())){
             Client objectClient = registerClient(clientRequest);
             return objectClient;
         }

@@ -1,7 +1,6 @@
 package com.SimulacaoBancaria.simulacaoBancaria.request;
 
 import com.SimulacaoBancaria.simulacaoBancaria.model.*;
-
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
@@ -73,7 +72,7 @@ public class ClientRequest {
         this.account = account;
     }
 
-    public Client requestObject(){
+    public Client requestObjectClient(){
         Client client = new Client();
         client.setName(this.name);
         client.setCpf(this.cpf);
@@ -83,4 +82,5 @@ public class ClientRequest {
         client.setCreatedAt(LocalDate.now());
         return client;
     }
+
 }

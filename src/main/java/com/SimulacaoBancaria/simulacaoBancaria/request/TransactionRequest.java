@@ -1,45 +1,39 @@
-package com.SimulacaoBancaria.simulacaoBancaria.model;
+package com.SimulacaoBancaria.simulacaoBancaria.request;
 
+import com.SimulacaoBancaria.simulacaoBancaria.model.Client;
+import com.SimulacaoBancaria.simulacaoBancaria.model.Transaction;
 import com.SimulacaoBancaria.simulacaoBancaria.utils.TypeTransactionEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "transaction")
-public class Transaction {
+public class TransactionRequest {
 
-    @Id
-    @Column(name = "amount_transaction", nullable = false)
+    @NotBlank
     private Double amountTransaction;
 
-    @Column(name = "origin_client", nullable = false)
+    @NotBlank
     private Client originClient;
 
-    @Column(name = "destiny_client", nullable = false)
+    @NotBlank
     private Client destinyClient;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @Column(name = "date_transaction", nullable = false)
+    @NotBlank
     private LocalDate dateTransaction;
 
-    @Column(name = "type_transaction", nullable = false)
-    @Enumerated(EnumType.STRING)
+    @NotBlank
     private TypeTransactionEnum typeTransaction;
 
-    @Column(name = "created_at", nullable = false)
-    private LocalDate createdAt;
-
-    public Transaction() {
+    public TransactionRequest() {
     }
 
-    public Transaction(Double amountTransaction, Client originClient, Client destinyClient, LocalDate dateTransaction, TypeTransactionEnum typeTransaction, LocalDate createdAt) {
+    public TransactionRequest(Double amountTransaction, Client originClient, Client destinyClient, LocalDate dateTransaction, TypeTransactionEnum typeTransaction) {
         this.amountTransaction = amountTransaction;
         this.originClient = originClient;
         this.destinyClient = destinyClient;
         this.dateTransaction = dateTransaction;
         this.typeTransaction = typeTransaction;
-        this.createdAt = createdAt;
     }
 
     public Double getAmountTransaction() {
@@ -82,12 +76,15 @@ public class Transaction {
         this.typeTransaction = typeTransaction;
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public Transaction requestObjectTransaction (){
+        Transaction transaction = new Transaction();
+        transaction.setAmountTransaction(this.amountTransaction);
+        transaction.setOriginClient(this.originClient);
+        transaction.setDestinyClient(this.destinyClient);
+        transaction.setDateTransaction(this.dateTransaction);
+        transaction.setTypeTransaction(this.typeTransaction);
+        transaction.setCreatedAt(LocalDate.now());
+        return transaction;
     }
 
 }
