@@ -1,5 +1,5 @@
-create table client(
-postalCode varchar(11) not null primary key,
+create table address(
+postalCode varchar(11) primary key not null,
 street varchar(150) not null,
 state varchar(20) not null,
 city varchar(30) not null,
