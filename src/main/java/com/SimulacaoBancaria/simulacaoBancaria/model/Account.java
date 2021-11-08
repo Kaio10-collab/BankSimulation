@@ -1,5 +1,7 @@
 package com.SimulacaoBancaria.simulacaoBancaria.model;
 
+import com.SimulacaoBancaria.simulacaoBancaria.utils.AccountEnum;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -14,15 +16,25 @@ public class Account {
     @Column(name = "balance", nullable = false)
     private Double balance;
 
+    @Column(name = "type_account", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private AccountEnum typeAccount;
+
+    @ManyToOne
+    @JoinColumn(name = "amount_transaction")
+    private Transaction transaction;
+
     @Column(name = "created_at", nullable = false)
     private LocalDate createdAt;
 
     public Account() {
     }
 
-    public Account(Long numberAccount, Double balance, LocalDate createdAt) {
+    public Account(Long numberAccount, Double balance, AccountEnum typeAccount, Transaction transaction, LocalDate createdAt) {
         this.numberAccount = numberAccount;
         this.balance = balance;
+        this.typeAccount = typeAccount;
+        this.transaction = transaction;
         this.createdAt = createdAt;
     }
 
@@ -48,5 +60,21 @@ public class Account {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public AccountEnum getTypeAccount() {
+        return typeAccount;
+    }
+
+    public void setTypeAccount(AccountEnum typeAccount) {
+        this.typeAccount = typeAccount;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
     }
 }
