@@ -1,4 +1,8 @@
 package com.SimulacaoBancaria.simulacaoBancaria.utils;
 
-public class TypeTransactionEnum {
+public enum TypeTransactionEnum {
+
+    WITHDRAW,
+    DEPOSIT,
+    TRANSFER
 }
