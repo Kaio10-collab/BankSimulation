@@ -1,9 +1,10 @@
 package com.SimulacaoBancaria.simulacaoBancaria.request;
 
 import com.SimulacaoBancaria.simulacaoBancaria.model.Client;
-import com.SimulacaoBancaria.simulacaoBancaria.model.Transaction;
 import com.SimulacaoBancaria.simulacaoBancaria.utils.TypeTransactionEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
@@ -22,6 +23,7 @@ public class TransactionRequest {
     @NotBlank
     private LocalDate dateTransaction;
 
+    @Enumerated(EnumType.STRING)
     @NotBlank
     private TypeTransactionEnum typeTransaction;
 
@@ -74,17 +76,6 @@ public class TransactionRequest {
 
     public void setTypeTransaction(TypeTransactionEnum typeTransaction) {
         this.typeTransaction = typeTransaction;
-    }
-
-    public Transaction requestObjectTransaction (){
-        Transaction transaction = new Transaction();
-        transaction.setAmountTransaction(this.amountTransaction);
-        transaction.setOriginClient(this.originClient);
-        transaction.setDestinyClient(this.destinyClient);
-        transaction.setDateTransaction(this.dateTransaction);
-        transaction.setTypeTransaction(this.typeTransaction);
-        transaction.setCreatedAt(LocalDate.now());
-        return transaction;
     }
 
 }

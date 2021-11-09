@@ -1,6 +1,6 @@
 package com.SimulacaoBancaria.simulacaoBancaria.utils;
 
-public enum AccountEnum {
+public enum TypeAccountEnum {
 
     CHECKING_ACCOUNT,
     SAVINGS_ACCOUNT;
