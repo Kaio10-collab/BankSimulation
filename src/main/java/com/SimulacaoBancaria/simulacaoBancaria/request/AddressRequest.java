@@ -1,6 +1,9 @@
 package com.SimulacaoBancaria.simulacaoBancaria.request;
 
+import com.SimulacaoBancaria.simulacaoBancaria.model.Address;
+
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 
 public class AddressRequest {
 
@@ -68,5 +71,16 @@ public class AddressRequest {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Address requestObjectAddress(){
+        Address address = new Address();
+        address.setPostalCode(this.postalCode);
+        address.setStreet(this.street);
+        address.setState(this.state);
+        address.setCity(this.city);
+        address.setCountry(this.country);
+        address.setCreatedAt(LocalDate.now());
+        return address;
     }
 }
