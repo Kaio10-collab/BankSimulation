@@ -23,14 +23,19 @@ public class Account {
     @Column(name = "created_at", nullable = false)
     private LocalDate createdAt;
 
+    //TODO FK
+    @JoinColumn(name = "cpf", foreignKey = @ForeignKey)
+    private Client client;
+
     public Account() {
     }
 
-    public Account(Long numberAccount, Double balance, TypeAccountEnum typeAccount, LocalDate createdAt) {
+    public Account(Long numberAccount, Double balance, TypeAccountEnum typeAccount, LocalDate createdAt, Client client) {
         this.numberAccount = numberAccount;
         this.balance = balance;
         this.typeAccount = typeAccount;
         this.createdAt = createdAt;
+        this.client = client;
     }
 
     public Long getNumberAccount() {
@@ -49,14 +54,6 @@ public class Account {
         this.balance = balance;
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public TypeAccountEnum getTypeAccount() {
         return typeAccount;
     }
@@ -65,4 +62,19 @@ public class Account {
         this.typeAccount = typeAccount;
     }
 
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

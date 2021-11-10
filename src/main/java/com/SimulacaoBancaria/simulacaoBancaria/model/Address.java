@@ -26,16 +26,29 @@ public class Address {
     @Column(name = "created_at", nullable = false)
     private LocalDate createdAt;
 
+    //TODO FK
+    @JoinColumn(name = "cpf", foreignKey = @ForeignKey(name = ""))
+    private Client client;
+
     public Address() {
     }
 
-    public Address(String postalCode, String street, String state, String city, String country, LocalDate createdAt) {
+    public Address(String postalCode, String street, String state, String city, String country, LocalDate createdAt, Client client) {
         this.postalCode = postalCode;
         this.street = street;
         this.state = state;
         this.city = city;
         this.country = country;
         this.createdAt = createdAt;
+        this.client = client;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getStreet() {
@@ -62,14 +75,6 @@ public class Address {
         this.city = city;
     }
 
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
     public String getCountry() {
         return country;
     }
@@ -86,4 +91,11 @@ public class Address {
         this.createdAt = createdAt;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

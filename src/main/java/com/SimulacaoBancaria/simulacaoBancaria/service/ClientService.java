@@ -27,6 +27,7 @@ public class ClientService {
     }
 
     public Client registrationChange (ClientRequest clientRequest) {
+
         if(clientRepository.existsById(clientRequest.requestObjectClient().getId())){
             Client objectClient = registerClient(clientRequest);
             return objectClient;
