@@ -1,7 +1,6 @@
 package com.SimulacaoBancaria.simulacaoBancaria.request;
 
 import com.SimulacaoBancaria.simulacaoBancaria.model.Address;
-
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
