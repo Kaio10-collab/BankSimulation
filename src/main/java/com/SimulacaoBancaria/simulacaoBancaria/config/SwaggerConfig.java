@@ -33,22 +33,3 @@ public class SwaggerConfig {
     }
 
 }
-//@Component
-//public class ConfigMessageValidation {
-//
-//    @Bean
-//    public MessageSource ferramentsMessage() {
-//        ReloadableResourceBundleMessageSource messageSource
-//                = new ReloadableResourceBundleMessageSource();
-//
-//        messageSource.setBasename("classpath:messages");
-//        messageSource.setDefaultEncoding("UTF-8");
-//        return messageSource;
-//    }
-//
-//    @Bean
-//    public LocalValidatorFactoryBean getValidator() {
-//        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-//        bean.setValidationMessageSource(ferramentsMessage());
-//        return bean;
-//    }
