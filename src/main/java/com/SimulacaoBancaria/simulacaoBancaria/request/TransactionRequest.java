@@ -6,25 +6,26 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class TransactionRequest {
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private Double amountTransaction;
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private Client originClient;
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private Client destinyClient;
 
+    @NotNull(message = "{validation.field_required}")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @NotBlank
     private LocalDate dateTransaction;
 
     @Enumerated(EnumType.STRING)
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private TypeTransactionEnum typeTransaction;
 
     public TransactionRequest() {

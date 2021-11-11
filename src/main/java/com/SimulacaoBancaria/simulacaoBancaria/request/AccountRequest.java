@@ -9,14 +9,14 @@ import java.time.LocalDate;
 
 public class AccountRequest {
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private Long numberAccount;
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private Double balance;
 
     @Enumerated(EnumType.STRING)
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private TypeAccountEnum typeAccount;
 
     public AccountRequest() {

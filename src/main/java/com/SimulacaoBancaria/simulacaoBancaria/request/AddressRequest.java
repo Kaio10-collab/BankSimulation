@@ -6,19 +6,19 @@ import java.time.LocalDate;
 
 public class AddressRequest {
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private String postalCode;
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private String street;
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private String state;
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private String city;
 
-    @NotBlank
+    @NotBlank(message = "{validation.field_required}")
     private String country;
 
     public AddressRequest() {
@@ -82,4 +82,5 @@ public class AddressRequest {
         address.setCreatedAt(LocalDate.now());
         return address;
     }
+
 }
