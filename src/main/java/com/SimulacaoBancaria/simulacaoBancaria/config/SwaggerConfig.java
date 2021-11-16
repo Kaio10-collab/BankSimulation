@@ -15,13 +15,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     @Bean
-    public Docket clientAPI(){
+    public Docket clientAPI() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.SimulacaoBancaria.simulacaoBancaria"))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(apiInfo());
+                .apiInfo(apiInfo()) ;
     }
 
     private ApiInfo apiInfo() {
@@ -29,7 +29,6 @@ public class SwaggerConfig {
                 .title("Banking simulation design")
                 .description("A project that simulates a 24hr bank for customers")
                 .version("1.0.0")
-                .build();
+                .build() ;
     }
-
 }

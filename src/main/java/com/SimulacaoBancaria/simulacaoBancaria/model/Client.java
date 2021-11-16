@@ -25,17 +25,40 @@ public class Client {
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
+    @Column(name = "postal_code", nullable = false)
+    private String postalCode;
+
+    @Column(name = "street", nullable = false)
+    private String street;
+
+    @Column(name = "state", nullable = false)
+    private String state;
+
+    @Column(name = "city", nullable = false)
+    private String city;
+
+    @Column(name = "country", nullable = false)
+    private String country;
+
+   // Todo @JoinColumn(name = "cpf", foreignKey = @ForeignKey)
+  //  private Account account;
+
     @Column(name = "created_at", nullable = false)
     private LocalDate createdAt;
 
     public Client() {
     }
 
-    public Client(Long id, String name, String cpf, String phoneNumber, LocalDate createdAt) {
+    public Client(Long id, String name, String cpf, String phoneNumber, String postalCode, String street, String state, String city, String country, LocalDate createdAt) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
         this.phoneNumber = phoneNumber;
+        this.postalCode = postalCode;
+        this.street = street;
+        this.state = state;
+        this.city = city;
+        this.country = country;
         this.createdAt = createdAt;
     }
 }
