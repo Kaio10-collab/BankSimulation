@@ -1,49 +1,18 @@
-package com.SimulacaoBancaria.simulacaoBancaria.model;
+package com.SimulacaoBancaria.simulacaoBancaria.response;
 
-import javax.persistence.*;
-import java.time.LocalDate;
+public class ClientResponse {
 
-@Entity
-@Table(name="client")
-public class Client {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "name", length = 100, nullable = false)
     private String name;
-
-    @Column(name = "cpf", length = 50, nullable = false)
     private String cpf;
-
-    @Column(name = "phone_number", length = 50, nullable = false)
     private String phoneNumber;
-
-    @Column(name = "postal_code", length = 50, nullable = false)
     private String postalCode;
-
-    @Column(name = "street", length = 150, nullable = false)
     private String street;
-
-    @Column(name = "state", length = 20, nullable = false)
     private String state;
-
-    @Column(name = "city", length = 30, nullable = false)
     private String city;
-
-    @Column(name = "country", length = 50, nullable = false)
     private String country;
 
-   // Todo @JoinColumn(name = "cpf", foreignKey = @ForeignKey)
-
-    @Column(name = "created_at")
-    private LocalDate createdAt;
-
-    public Client() {
-    }
-
-    public Client(Long id, String name, String cpf, String phoneNumber, String postalCode, String street, String state, String city, String country, LocalDate createdAt) {
+    public ClientResponse(Long id, String name, String cpf, String phoneNumber, String postalCode, String street, String state, String city, String country) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
@@ -53,7 +22,6 @@ public class Client {
         this.state = state;
         this.city = city;
         this.country = country;
-        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -126,13 +94,5 @@ public class Client {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
     }
 }

@@ -31,17 +31,16 @@ public class ClientController {
     }
 
     @ApiOperation(value = "Client update")
-    @PutMapping("/{cpf}")
-    public ResponseEntity<Client> clientUpdate (@PathVariable ClientRequest cpf, @RequestBody @Valid ClientRequest clientRequest) {
+    @PutMapping()
+    public ResponseEntity<Client> clientUpdate (@RequestBody @Valid ClientRequest cpf) {
 
         Client client = clientService.registrationChange(cpf) ;
         return new ResponseEntity<Client>(client, HttpStatus.ACCEPTED) ;
-
     }
 
     @ApiOperation(value = "Delete client")
-    @DeleteMapping("/{cpf}")
-    public void cancelClient(@PathVariable String cpf) {
-        clientService.deleteClient(cpf) ;
+    @DeleteMapping("/{id}")
+    public void cancelClient(@PathVariable Long id) {
+        clientService.deleteClient(id) ;
     }
 }
