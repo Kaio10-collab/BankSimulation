@@ -5,6 +5,8 @@ import com.SimulacaoBancaria.simulacaoBancaria.request.ClientRequest;
 import com.SimulacaoBancaria.simulacaoBancaria.service.ClientService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,8 @@ public class ClientController {
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
+
+    private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
 
     @ApiOperation(value = "Client registration")
     @PostMapping
