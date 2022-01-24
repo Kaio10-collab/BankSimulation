@@ -1,7 +1,7 @@
 create table account(
-id bigint primary key,
-account bigint not null,
-FOREIGN KEY (client_cpf),
-TypeAccountEnum varchar (50),
+id BIGSERIAL not null primary key,
+accountNumber bigint not null,
+client_cpf bigint not null,
+type_account varchar(50) not null,
 created_at timestamp
 );
