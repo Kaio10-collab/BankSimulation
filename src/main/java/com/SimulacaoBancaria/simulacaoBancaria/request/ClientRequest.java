@@ -2,33 +2,33 @@ package com.SimulacaoBancaria.simulacaoBancaria.request;
 
 import com.SimulacaoBancaria.simulacaoBancaria.model.*;
 import org.hibernate.validator.constraints.br.CPF;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class ClientRequest {
 
-    @NotBlank(message = "{validation.field_required}")
+    @NotNull(message = "{validation.field_required}")
     private String name;
 
     @CPF(message = "{validation.cpf_invalid}")
     private String cpf;
 
-    @NotBlank(message = "{validation.field_required}")
+    @NotNull(message = "{validation.field_required}")
     private String phoneNumber;
 
-    @NotBlank(message = "{validation.field_required}")
+    @NotNull(message = "{validation.field_required}")
     private String postalCode;
 
-    @NotBlank(message = "{validation.field_required}")
+    @NotNull(message = "{validation.field_required}")
     private String street;
 
-    @NotBlank(message = "{validation.field_required}")
+    @NotNull(message = "{validation.field_required}")
     private String state;
 
-    @NotBlank(message = "{validation.field_required}")
+    @NotNull(message = "{validation.field_required}")
     private String city;
 
-    @NotBlank(message = "{validation.field_required}")
+    @NotNull(message = "{validation.field_required}")
     private String country;
 
     public ClientRequest() {
@@ -110,16 +110,16 @@ public class ClientRequest {
     }
 
     public Client requestObjectClient() {
-        Client client = new Client() ;
-        client.setName(this.name) ;
-        client.setCpf(this.cpf) ;
-        client.setPhoneNumber(this.phoneNumber) ;
-        client.setPostalCode(this.postalCode) ;
-        client.setStreet(this.street) ;
-        client.setState(this.state) ;
-        client.setCity(this.city) ;
-        client.setCountry(this.country) ;
-        client.setCreatedAt(LocalDate.now()) ;
+        Client client = new Client();
+        client.setName(this.name);
+        client.setCpf(this.cpf);
+        client.setPhoneNumber(this.phoneNumber);
+        client.setPostalCode(this.postalCode);
+        client.setStreet(this.street);
+        client.setState(this.state);
+        client.setCity(this.city);
+        client.setCountry(this.country);
+        client.setCreatedAt(LocalDate.now());
         return client;
     }
 }

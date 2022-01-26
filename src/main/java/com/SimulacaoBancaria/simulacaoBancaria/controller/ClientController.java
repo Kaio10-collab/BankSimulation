@@ -25,7 +25,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ClientController.class) ;
 
     @ApiOperation(value = "Client registration")
     @PostMapping

@@ -35,8 +35,6 @@ public class Client {
     @Column(name = "country", length = 50, nullable = false)
     private String country;
 
-   // Todo @JoinColumn(name = "cpf", foreignKey = @ForeignKey)
-
     @Column(name = "created_at")
     private LocalDate createdAt;
 
