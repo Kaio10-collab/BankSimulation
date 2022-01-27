@@ -7,12 +7,17 @@ public class AccountResponse {
 
     private Long id;
     private AccountTypeEnum type_account;
-    private Client cpf;
+    private Long balanceMoney;
+    private Client client;
 
-    public AccountResponse(Long id, AccountTypeEnum type_account, Client cpf) {
+    public AccountResponse() {
+    }
+
+    public AccountResponse(Long id, AccountTypeEnum type_account, Long balanceMoney, Client client) {
         this.id = id;
         this.type_account = type_account;
-        this.cpf = cpf;
+        this.balanceMoney = balanceMoney;
+        this.client = client;
     }
 
     public Long getId() {
@@ -31,11 +36,19 @@ public class AccountResponse {
         this.type_account = type_account;
     }
 
-    public Client getCpf() {
-        return cpf;
+    public Client getClient() {
+        return client;
     }
 
-    public void setCpf(Client cpf) {
-        this.cpf = cpf;
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Long getBalanceMoney() {
+        return balanceMoney;
+    }
+
+    public void setBalanceMoney(Long balanceMoney) {
+        this.balanceMoney = balanceMoney;
     }
 }

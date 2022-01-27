@@ -15,6 +15,12 @@ public class Account {
     @Column(name = "accountNumber", length = 50, nullable = false)
     private Long accountNumber;
 
+    @Column(name = "balanceMoney", length = 50, nullable = false)
+    private Long balanceMoney;
+
+    @Column(name = "amount", length = 50, nullable = false)
+    private Long amount;
+
     @Column(name = "type_account", length = 50, nullable = false)
     @Enumerated(EnumType.STRING)
     private AccountTypeEnum type_account;
@@ -28,9 +34,11 @@ public class Account {
     public Account() {
     }
 
-    public Account(Long id, Long accountNumber, AccountTypeEnum type_account, Client client, LocalDate createdAt) {
+    public Account(Long id, Long accountNumber, Long balanceMoney, Long amount, AccountTypeEnum type_account, Client client, LocalDate createdAt) {
         this.id = id;
         this.accountNumber = accountNumber;
+        this.balanceMoney = balanceMoney;
+        this.amount = amount;
         this.type_account = type_account;
         this.client = client;
         this.createdAt = createdAt;
@@ -70,6 +78,22 @@ public class Account {
 
     public LocalDate getCreatedAt() {
         return createdAt;
+    }
+
+    public Long getBalanceMoney() {
+        return balanceMoney;
+    }
+
+    public void setBalanceMoney(Long balanceMoney) {
+        this.balanceMoney = balanceMoney;
+    }
+
+    public Long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Long amount) {
+        this.amount = amount;
     }
 
     public void setCreatedAt(LocalDate createdAt) {
