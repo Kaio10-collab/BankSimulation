@@ -8,7 +8,6 @@ import com.SimulacaoBancaria.simulacaoBancaria.repository.ClientRepository;
 import com.SimulacaoBancaria.simulacaoBancaria.request.ClientRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
